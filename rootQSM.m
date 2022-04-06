@@ -40,7 +40,7 @@ create_input
 QSM=treeqsm(PCscal_up,inputs)
 
 % 5. Results: '.XLSX' from QSM.mat
- ext='.xlsx';
+%ext='.xlsx';
 %filename=strcat('Aprox_RootTraits_',filesample,ext);
 %delete (filename);
 
@@ -62,7 +62,10 @@ m=median(MX);
 [minimo,position]=min(abs(MX-m));
 mas_cercano=MX(position);
  ext='.xlsx';
- filename2=strcat('RootTraits_',filesample,ext);
+ factor=num2str(factor);
+ filename2=strcat('RootTraits_',filesample,'_s');
+ filename2=strcat(filename2,factor,ext);
+
  delete (filename2);
 if position==1
 Value=Aprox_1;
