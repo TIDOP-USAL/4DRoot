@@ -8,7 +8,7 @@ close all;
 %INPUTS: FILESAMPLE,FACTOR--->ASK BY CONSOLE
  prompt = 'What is the file name of the root sample without extension (*stl)?';
  filesample = input(prompt,'s');
- prompt = 'What is the scale factor to choose the minimun flexible cylinder´s height (by default 0.01; gives [dm] values if the model is in [mm])?';
+ prompt = 'What is the scale factor to choose the minimun flexible cylinder´s height (by default 0.01)?';
  factor = input(prompt);
  prompt = 'Do you want to visualize the inpute data (yes=1, no=0)?';
  view=input(prompt);
@@ -45,7 +45,7 @@ QSM=treeqsm(PCscal_up,inputs)
 %delete (filename);
 
 %TOTAL TRAITS SHEET
-TRAITS = {'TotalVolume(*10-3 dm3)';'PrimaryRootVolume(*10-3 dm3)';'LateralRootVolume(*10-3 dm3)';'TotalRootHeight(dm)';'TotalLenght(dm)';'PrimaryRootLenght(dm)';'LateralRootLength(dm)';'NumberOfRamifications';'Max.Ramif.Order';'TotalArea(dm2)';'PrimaryRootArea(dm2)';'LateralRootArea(dm2)';'CrownDiamAve(dm)';'CrownDiamMax(dm)';'CrownAreaConvexHull(dm2)';'CrownAreaAlphaShape(dm2)';'CrownBaseeHeight(dm)';'CrownLenght(dm)';'CrownRatio';'CrownVolumeConv(*10-3 dm3)';'CrownVolumeAlpha(*10-3 dm3)';'Location x';'Location y';'Location z'};
+TRAITS = {'TotalVolume';'PrimaryRootVolume';'LateralRootVolume';'TotalRootHeight';'TotalLenght';'PrimaryRootLenght';'LateralRootLength';'NumberOfRamifications';'Max.Ramif.Order';'TotalArea';'PrimaryRootArea';'LateralRootArea';'CrownDiamAve';'CrownDiamMax';'CrownAreaConvexHull';'CrownAreaAlphaShape';'CrownBaseeHeight';'CrownLenght';'CrownRatio';'CrownVolumeConv';'CrownVolumeAlpha';'Location x';'Location y';'Location z'};
 Aprox_1 = {QSM(1).treedata.TotalVolume;QSM(1).treedata.TrunkVolume;QSM(1).treedata.BranchVolume;QSM(1).treedata.TreeHeight;QSM(1).treedata.TotalLength;QSM(1).treedata.TrunkLength;QSM(1).treedata.BranchLength;QSM(1).treedata.NumberBranches;QSM(1).treedata.MaxBranchOrder;QSM(1).treedata.TotalArea;QSM(1).treedata.TrunkArea;QSM(1).treedata.BranchArea;QSM(1).treedata.CrownDiamAve;QSM(1).treedata.CrownDiamMax;QSM(1).treedata.CrownAreaConv;QSM(1).treedata.CrownAreaAlpha;QSM(1).treedata.CrownBaseHeight;QSM(1).treedata.CrownLength;QSM(1).treedata.CrownRatio;QSM(1).treedata.CrownVolumeConv;QSM(1).treedata.CrownVolumeAlpha;QSM(1).treedata.location(1);QSM(1).treedata.location(2);QSM(1).treedata.location(3)};
 Aprox_2 = {QSM(2).treedata.TotalVolume;QSM(2).treedata.TrunkVolume;QSM(2).treedata.BranchVolume;QSM(2).treedata.TreeHeight;QSM(2).treedata.TotalLength;QSM(2).treedata.TrunkLength;QSM(2).treedata.BranchLength;QSM(2).treedata.NumberBranches;QSM(2).treedata.MaxBranchOrder;QSM(2).treedata.TotalArea;QSM(2).treedata.TrunkArea;QSM(2).treedata.BranchArea;QSM(2).treedata.CrownDiamAve;QSM(2).treedata.CrownDiamMax;QSM(2).treedata.CrownAreaConv;QSM(2).treedata.CrownAreaAlpha;QSM(2).treedata.CrownBaseHeight;QSM(2).treedata.CrownLength;QSM(2).treedata.CrownRatio;QSM(2).treedata.CrownVolumeConv;QSM(2).treedata.CrownVolumeAlpha;QSM(2).treedata.location(1);QSM(2).treedata.location(2);QSM(2).treedata.location(3)};
 Aprox_3 = {QSM(3).treedata.TotalVolume;QSM(3).treedata.TrunkVolume;QSM(3).treedata.BranchVolume;QSM(3).treedata.TreeHeight;QSM(3).treedata.TotalLength;QSM(3).treedata.TrunkLength;QSM(3).treedata.BranchLength;QSM(3).treedata.NumberBranches;QSM(3).treedata.MaxBranchOrder;QSM(3).treedata.TotalArea;QSM(3).treedata.TrunkArea;QSM(3).treedata.BranchArea;QSM(3).treedata.CrownDiamAve;QSM(3).treedata.CrownDiamMax;QSM(3).treedata.CrownAreaConv;QSM(3).treedata.CrownAreaAlpha;QSM(3).treedata.CrownBaseHeight;QSM(3).treedata.CrownLength;QSM(3).treedata.CrownRatio;QSM(3).treedata.CrownVolumeConv;QSM(3).treedata.CrownVolumeAlpha;QSM(3).treedata.location(1);QSM(3).treedata.location(2);QSM(3).treedata.location(3)};
@@ -95,7 +95,7 @@ T2 = table(TRAITS, Value);
 writetable(T2,filename2,'Sheet','TotalTraits');
 
 %TRAITS PER RAMIFICATION ORDER SHEET
-ORDER_TRAITS={'Volume/RamificationOrder (*10-3 dm3)';'Area/RamificationOrder (dm2)';'Lenght/RamificationOrder (dm)';'Number/RamificationOrder'};
+ORDER_TRAITS={'Volume/RamificationOrder';'Area/RamificationOrder';'Lenght/RamificationOrder';'Number/RamificationOrder'};
 Aprox1 = {QSM(1).treedata.VolBranchOrd;QSM(1).treedata.AreBranchOrd;QSM(1).treedata.LenBranchOrd;QSM(1).treedata.NumBranchOrd};
 Aprox2 = {QSM(2).treedata.VolBranchOrd;QSM(2).treedata.AreBranchOrd;QSM(2).treedata.LenBranchOrd;QSM(2).treedata.NumBranchOrd};
 Aprox3 = {QSM(3).treedata.VolBranchOrd;QSM(3).treedata.AreBranchOrd;QSM(3).treedata.LenBranchOrd;QSM(3).treedata.NumBranchOrd};
@@ -135,48 +135,48 @@ B2=table(ORDER_TRAITS,Order);
 writetable(B2,filename2,'Sheet','RamificationOrder_Traits');
 
 %STEM TAPER SHEET
-STEM_TAPER1={'Aprox#1_Distance(dm)';'Aprox#1_Diameter(dm)'};
+STEM_TAPER1={'Aprox#1_Distance';'Aprox#1_Diameter'};
 Section1={QSM(1).treedata.StemTaper(1,:),QSM(1).treedata.StemTaper(2,:)};
 Section=transpose(Section1);
 S=table(STEM_TAPER1,Section);
 %writetable(S,filename,'Sheet','TaprootTaper');
-STEM_TAPER2={'Aprox#2_Distance(dm)';'Aprox#2_Diameter(dm)'};
+STEM_TAPER2={'Aprox#2_Distance';'Aprox#2_Diameter'};
 Section2={QSM(2).treedata.StemTaper(1,:),QSM(2).treedata.StemTaper(2,:)};
 Section=transpose(Section2);
 S=table(STEM_TAPER2,Section);
 %writetable(S,filename,'Sheet','TaprootTaper','WriteMode','append');
-STEM_TAPER3={'Aprox#3_Distance(dm)';'Aprox#3_Diameter(dm)'};
+STEM_TAPER3={'Aprox#3_Distance';'Aprox#3_Diameter'};
 Section3={QSM(3).treedata.StemTaper(1,:),QSM(3).treedata.StemTaper(2,:)};
 Section=transpose(Section3);
 S=table(STEM_TAPER3,Section);
 %writetable(S,filename,'Sheet','TaprootTaper','WriteMode','append');
-STEM_TAPER4={'Aprox#4_Distance(dm)';'Aprox#4_Diameter(dm)'};
+STEM_TAPER4={'Aprox#4_Distance';'Aprox#4_Diameter'};
 Section4={QSM(4).treedata.StemTaper(1,:),QSM(4).treedata.StemTaper(2,:)};
 Section=transpose(Section4);
 S=table(STEM_TAPER4,Section);
 %writetable(S,filename,'Sheet','TaprootTaper','WriteMode','append');
-STEM_TAPER5={'Aprox#5_Distance(dm)';'Aprox#5_Diameter(dm)'};
+STEM_TAPER5={'Aprox#5_Distance';'Aprox#5_Diameter'};
 Section5={QSM(5).treedata.StemTaper(1,:),QSM(5).treedata.StemTaper(2,:)};
 Section=transpose(Section5);
 S=table(STEM_TAPER5,Section);
 %writetable(S,filename,'Sheet','TaprootTaper','WriteMode','append');
-STEM_TAPER6={'Aprox#6_Distance(dm)';'Aprox#6_Diameter(dm)'};
+STEM_TAPER6={'Aprox#6_Distance';'Aprox#6_Diameter'};
 Section6={QSM(6).treedata.StemTaper(1,:),QSM(6).treedata.StemTaper(2,:)};
 Section=transpose(Section6);
 S=table(STEM_TAPER6,Section);
 %writetable(S,filename,'Sheet','TaprootTaper','WriteMode','append');
-STEM_TAPER7={'Aprox#7_Distance(dm)';'Aprox#7_Diameter(dm)'};
+STEM_TAPER7={'Aprox#7_Distance';'Aprox#7_Diameter'};
 Section7={QSM(7).treedata.StemTaper(1,:),QSM(7).treedata.StemTaper(2,:)};
 Section=transpose(Section7);
 S=table(STEM_TAPER7,Section);
 %writetable(S,filename,'Sheet','TaprootTaper','WriteMode','append');
-STEM_TAPER8={'Aprox#8_Distance(dm)';'Aprox#8_Diameter(dm)'};
+STEM_TAPER8={'Aprox#8_Distance';'Aprox#8_Diameter'};
 Section8={QSM(8).treedata.StemTaper(1,:),QSM(8).treedata.StemTaper(2,:)};
 Section=transpose(Section8);
 S=table(STEM_TAPER8,Section);
 %writetable(S,filename,'Sheet','TaprootTaper','WriteMode','append');
 % CHOOSE 1
-STEM_TAPER={'Distance(dm)';'Diameter(dm)'};
+STEM_TAPER={'Distance';'Diameter'};
 if position==1
 Section=Section1;
 end
@@ -207,56 +207,56 @@ writetable(S2,filename2,'Sheet','TaprootTaper');
 
 %SPREADS SHEET
 %If QSM(1).treedata.TreeHeight=5-10;
-SPREAD1={'Aprox#1_Spread_hz1(dm)','Aprox#1_Spread_hz2(dm)','Aprox#1_Spread_hz3(dm)','Aprox#1_Spread_hz4(dm)','Aprox#1_Spread_hz5(dm)','Aprox#1_Spread_hz6(dm)','Aprox#1_Spread_hz7(dm)','Aprox#1_Spread_hz8(dm)','Aprox#1_Spread_hz9(dm)','Aprox#1_Spread_hz10(dm)'};
+SPREAD1={'Aprox#1_Spread_hz1','Aprox#1_Spread_hz2','Aprox#1_Spread_hz3','Aprox#1_Spread_hz4','Aprox#1_Spread_hz5','Aprox#1_Spread_hz6','Aprox#1_Spread_hz7','Aprox#1_Spread_hz8','Aprox#1_Spread_hz9','Aprox#1_Spread_hz10'};
 Direction1={QSM(1).treedata.spreads(1,:),QSM(1).treedata.spreads(2,:),QSM(1).treedata.spreads(3,:),QSM(1).treedata.spreads(4,:),QSM(1).treedata.spreads(5,:),QSM(1).treedata.spreads(6,:),QSM(1).treedata.spreads(7,:),QSM(1).treedata.spreads(8,:),QSM(1).treedata.spreads(9,:),QSM(1).treedata.spreads(10,:)};
 Direction=transpose(Direction1);
 SPREAD=transpose(SPREAD1);
 E=table(SPREAD,Direction);
 %writetable(E,filename,'Sheet','Spreads', 'WriteMode','append');
-SPREAD1={'Aprox#2_Spread_hz1(dm)','Aprox#2_Spread_hz2(dm)','Aprox#2_Spread_hz3(dm)','Aprox#2_Spread_hz4(dm)','Aprox#2_Spread_hz5(dm)','Aprox#2_Spread_hz6(dm)','Aprox#2_Spread_hz7(dm)','Aprox#2_Spread_hz8(dm)','Aprox#2_Spread_hz9(dm)','Aprox#2_Spread_hz10(dm)'};
+SPREAD1={'Aprox#2_Spread_hz1','Aprox#2_Spread_hz2','Aprox#2_Spread_hz3','Aprox#2_Spread_hz4','Aprox#2_Spread_hz5','Aprox#2_Spread_hz6','Aprox#2_Spread_hz7','Aprox#2_Spread_hz8','Aprox#2_Spread_hz9','Aprox#2_Spread_hz10'};
 Direction2={QSM(2).treedata.spreads(1,:),QSM(2).treedata.spreads(2,:),QSM(2).treedata.spreads(3,:),QSM(2).treedata.spreads(4,:),QSM(2).treedata.spreads(5,:),QSM(2).treedata.spreads(6,:),QSM(2).treedata.spreads(7,:),QSM(2).treedata.spreads(8,:),QSM(2).treedata.spreads(9,:),QSM(2).treedata.spreads(10,:)};
 Direction=transpose(Direction2);
 SPREAD=transpose(SPREAD1);
 E=table(SPREAD,Direction);
 %writetable(E,filename,'Sheet','Spreads', 'WriteMode','append');
-SPREAD1={'Aprox#3_Spread_hz1(dm)','Aprox#3_Spread_hz2(dm)','Aprox#3_Spread_hz3(dm)','Aprox#3_Spread_hz4(dm)','Aprox#3_Spread_hz5(dm)','Aprox#3_Spread_hz6(dm)','Aprox#3_Spread_hz7(dm)','Aprox#3_Spread_hz8(dm)','Aprox#3_Spread_hz9(dm)','Aprox#3_Spread_hz10(dm)'};
+SPREAD1={'Aprox#3_Spread_hz1','Aprox#3_Spread_hz2','Aprox#3_Spread_hz3','Aprox#3_Spread_hz4','Aprox#3_Spread_hz5','Aprox#3_Spread_hz6','Aprox#3_Spread_hz7','Aprox#3_Spread_hz8','Aprox#3_Spread_hz9','Aprox#3_Spread_hz10'};
 Direction3={QSM(3).treedata.spreads(1,:),QSM(3).treedata.spreads(2,:),QSM(3).treedata.spreads(3,:),QSM(3).treedata.spreads(4,:),QSM(3).treedata.spreads(5,:),QSM(3).treedata.spreads(6,:),QSM(3).treedata.spreads(7,:),QSM(3).treedata.spreads(8,:),QSM(3).treedata.spreads(9,:),QSM(3).treedata.spreads(10,:)};
 Direction=transpose(Direction3);
 SPREAD=transpose(SPREAD1);
 E=table(SPREAD,Direction);
 %writetable(E,filename,'Sheet','Spreads', 'WriteMode','append');
-SPREAD1={'Aprox#4_Spread_hz1(dm)','Aprox#4_Spread_hz2(dm)','Aprox#4_Spread_hz3(dm)','Aprox#4_Spread_hz4(dm)','Aprox#4_Spread_hz5(dm)','Aprox#4_Spread_hz6(dm)','Aprox#4_Spread_hz7(dm)','Aprox#4_Spread_hz8(dm)','Aprox#4_Spread_hz9(dm)','Aprox#4_Spread_hz10(dm)'};
+SPREAD1={'Aprox#4_Spread_hz1','Aprox#4_Spread_hz2','Aprox#4_Spread_hz3','Aprox#4_Spread_hz4','Aprox#4_Spread_hz5','Aprox#4_Spread_hz6','Aprox#4_Spread_hz7','Aprox#4_Spread_hz8','Aprox#4_Spread_hz9','Aprox#4_Spread_hz10'};
 Direction4={QSM(4).treedata.spreads(1,:),QSM(4).treedata.spreads(2,:),QSM(4).treedata.spreads(3,:),QSM(4).treedata.spreads(4,:),QSM(4).treedata.spreads(5,:),QSM(4).treedata.spreads(6,:),QSM(4).treedata.spreads(7,:),QSM(4).treedata.spreads(8,:),QSM(4).treedata.spreads(9,:),QSM(4).treedata.spreads(10,:)};
 Direction=transpose(Direction4);
 SPREAD=transpose(SPREAD1);
 E=table(SPREAD,Direction);
 %writetable(E,filename,'Sheet','Spreads', 'WriteMode','append');
-SPREAD1={'Aprox#5_Spread_hz1(dm)','Aprox#5_Spread_hz2(dm)','Aprox#5_Spread_hz3(dm)','Aprox#5_Spread_hz4(dm)','Aprox#5_Spread_hz5(dm)','Aprox#5_Spread_hz6(dm)','Aprox#5_Spread_hz7(dm)','Aprox#5_Spread_hz8(dm)','Aprox#5_Spread_hz9(dm)','Aprox#5_Spread_hz10(dm)'};
+SPREAD1={'Aprox#5_Spread_hz1','Aprox#5_Spread_hz2','Aprox#5_Spread_hz3','Aprox#5_Spread_hz4','Aprox#5_Spread_hz5','Aprox#5_Spread_hz6','Aprox#5_Spread_hz7','Aprox#5_Spread_hz8','Aprox#5_Spread_hz9','Aprox#5_Spread_hz10'};
 Direction5={QSM(5).treedata.spreads(1,:),QSM(5).treedata.spreads(2,:),QSM(5).treedata.spreads(3,:),QSM(5).treedata.spreads(4,:),QSM(5).treedata.spreads(5,:),QSM(5).treedata.spreads(6,:),QSM(5).treedata.spreads(7,:),QSM(5).treedata.spreads(8,:),QSM(5).treedata.spreads(9,:),QSM(5).treedata.spreads(10,:)};
 Direction=transpose(Direction5);
 SPREAD=transpose(SPREAD1);
 E=table(SPREAD,Direction);
 %writetable(E,filename,'Sheet','Spreads', 'WriteMode','append');
-SPREAD1={'Aprox#6_Spread_hz1(dm)','Aprox#6_Spread_hz2(dm)','Aprox#6_Spread_hz3(dm)','Aprox#6_Spread_hz4(dm)','Aprox#6_Spread_hz5(dm)','Aprox#6_Spread_hz6(dm)','Aprox#6_Spread_hz7(dm)','Aprox#6_Spread_hz8(dm)','Aprox#6_Spread_hz9(dm)','Aprox#6_Spread_hz10(dm)'};
+SPREAD1={'Aprox#6_Spread_hz1','Aprox#6_Spread_hz2','Aprox#6_Spread_hz3','Aprox#6_Spread_hz4','Aprox#6_Spread_hz5','Aprox#6_Spread_hz6','Aprox#6_Spread_hz7','Aprox#6_Spread_hz8','Aprox#6_Spread_hz9','Aprox#6_Spread_hz10'};
 Direction6={QSM(6).treedata.spreads(1,:),QSM(6).treedata.spreads(2,:),QSM(6).treedata.spreads(3,:),QSM(6).treedata.spreads(4,:),QSM(6).treedata.spreads(5,:),QSM(6).treedata.spreads(6,:),QSM(6).treedata.spreads(7,:),QSM(6).treedata.spreads(8,:),QSM(6).treedata.spreads(9,:),QSM(6).treedata.spreads(10,:)};
 Direction=transpose(Direction6);
 SPREAD=transpose(SPREAD1);
 E=table(SPREAD,Direction);
 %writetable(E,filename,'Sheet','Spreads', 'WriteMode','append');
-SPREAD1={'Aprox#7_Spread_hz1(dm)','Aprox#7_Spread_hz2(dm)','Aprox#7_Spread_hz3(dm)','Aprox#7_Spread_hz4(dm)','Aprox#7_Spread_hz5(dm)','Aprox#7_Spread_hz6(dm)','Aprox#7_Spread_hz7(dm)','Aprox#7_Spread_hz8(dm)','Aprox#7_Spread_hz9(dm)','Aprox#7_Spread_hz10(dm)'};
+SPREAD1={'Aprox#7_Spread_hz1','Aprox#7_Spread_hz2','Aprox#7_Spread_hz3','Aprox#7_Spread_hz4','Aprox#7_Spread_hz5','Aprox#7_Spread_hz6','Aprox#7_Spread_hz7','Aprox#7_Spread_hz8','Aprox#7_Spread_hz9','Aprox#7_Spread_hz10'};
 Direction7={QSM(7).treedata.spreads(1,:),QSM(7).treedata.spreads(2,:),QSM(7).treedata.spreads(3,:),QSM(7).treedata.spreads(4,:),QSM(7).treedata.spreads(5,:),QSM(7).treedata.spreads(6,:),QSM(7).treedata.spreads(7,:),QSM(7).treedata.spreads(8,:),QSM(7).treedata.spreads(9,:),QSM(7).treedata.spreads(10,:)};
 Direction=transpose(Direction7);
 SPREAD=transpose(SPREAD1);
 E=table(SPREAD,Direction);
 %writetable(E,filename,'Sheet','Spreads', 'WriteMode','append');
-SPREAD1={'Aprox#8_Spread_hz1(dm)','Aprox#8_Spread_hz2(dm)','Aprox#8_Spread_hz3(dm)','Aprox#8_Spread_hz4(dm)','Aprox#8_Spread_hz5(dm)','Aprox#8_Spread_hz6(dm)','Aprox#8_Spread_hz7(dm)','Aprox#8_Spread_hz8(dm)','Aprox#8_Spread_hz9(dm)','Aprox#8_Spread_hz10(dm)'};
+SPREAD1={'Aprox#8_Spread_hz1','Aprox#8_Spread_hz2','Aprox#8_Spread_hz3','Aprox#8_Spread_hz4','Aprox#8_Spread_hz5','Aprox#8_Spread_hz6','Aprox#8_Spread_hz7','Aprox#8_Spread_hz8','Aprox#8_Spread_hz9','Aprox#8_Spread_hz10'};
 Direction8={QSM(8).treedata.spreads(1,:),QSM(8).treedata.spreads(2,:),QSM(8).treedata.spreads(3,:),QSM(8).treedata.spreads(4,:),QSM(8).treedata.spreads(5,:),QSM(8).treedata.spreads(6,:),QSM(8).treedata.spreads(7,:),QSM(8).treedata.spreads(8,:),QSM(8).treedata.spreads(9,:),QSM(8).treedata.spreads(10,:)};
 Direction=transpose(Direction8);
 SPREAD=transpose(SPREAD1);
 E=table(SPREAD,Direction);
 %writetable(E,filename,'Sheet','Spreads', 'WriteMode','append');
 %CHOOSE 1
-SPREAD1={'Spread_hz1(dm)','Spread_hz2(dm)','Spread_hz3(dm)','Spread_hz4(dm)','Spread_hz5(dm)','Spread_hz6(dm)','Spread_hz7(dm)','Spread_hz8(dm)','Spread_hz9(dm)','Spread_hz10(dm)'};
+SPREAD1={'Spread_hz1','Spread_hz2','Spread_hz3','Spread_hz4','Spread_hz5','Spread_hz6','Spread_hz7','Spread_hz8','Spread_hz9','Spread_hz10'};
 if position==1
 Direction18=Direction1;
 end
