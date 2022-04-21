@@ -36,9 +36,19 @@ After the visualization, the process is paused. To continue, press any key.
 
 4.4. Output: Phenotypic root traits and their distribution are extracted to an excel file with several sheets. 
 
+The units of the traits are:
+
+	[L] as length and height: [ud]  from the scan / scale factor
+  
+	[L2] as area: [ud^2] from the scan / scale factor
+  
+	[L3] as volume: [ud^3] from the scan / scale factor * 10^(-3)
+  
+
+
 ![imagen](https://user-images.githubusercontent.com/64793162/159256801-c8b5eb02-a7fd-448a-b350-24ba7542c15f.png)
 
-*Noise removal: noise from the segmentation between soil and root can be removed by 4DRoot by choosing an appropriated factor scale (left: 3D scan from a root, right: QSM from the root).
+*Noise removal: noise from the segmentation between soil and root can be removed by 4DRoot by choosing an appropriated scale factor (left: 3D scan from a root, right: QSM from the root).
 
 ![imagen](https://user-images.githubusercontent.com/64793162/159258390-d1000307-bca7-498c-92ed-d724b7880a65.png)
 
