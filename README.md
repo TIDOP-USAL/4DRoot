@@ -20,7 +20,7 @@ INSTRUCTIONS: CODE FOR MODELING THE ROOTS
 ![imagen](https://user-images.githubusercontent.com/64793162/159256521-b83f13ae-4a56-44e0-9c9a-e9d78f8c8488.png)
 
 4.	Run rootQSM.m: 
-4.1. Inputs: 3D scan of the root in *stl format, factor scale to reconstruct the cylindrical fitting (0.01 by default) and desire to view the 3Dscan.
+4.1. Inputs: 3D scan of the root in *stl format, factor scale to reconstruct the cylindrical fitting and desire to view the 3Dscan.
 
 ![imagen](https://user-images.githubusercontent.com/64793162/159256583-b1fdd97d-aa11-4a53-9c86-95bf852c6730.png)
 
@@ -40,9 +40,9 @@ The units of the traits are:
 
 	[L] as length and height: [ud]  from the scan / scale factor
   
-	[L2] as area: [ud^2] from the scan / scale factor
+	[L2] as area: [ud^2] from the scan / (scale factor^2)
   
-	[L3] as volume: [ud^3] from the scan / scale factor * 10^(-3)
+	[L3] as volume: [ud^3] from the scan / (scale factor^3) * 10^(-3)
   
 
 
