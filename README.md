@@ -55,5 +55,6 @@ The units of the traits are:
 **In the 'samples&results' folder, there are 3 root samples to model with theirs 3 corresponding outputs.
 
 CITE:
-1.	Raumonen P, Kaasalainen M, Åkerblom M, Kaasalainen S, Kaartinen H, Vastaranta M, et al. Fast automatic precision tree models from terrestrial laser scanner data. Remote Sens. 2013;5(2):491–520.
+1.	Herrero-Huerta, Monica, Pasi Raumonen, and Diego Gonzalez-Aguilera. "4DRoot: Root phenotyping software for temporal 3D scans by X-ray computed tomography." Frontiers in Plant Science 13 (2022).
 2.	Herrero-Huerta, M., Meline, V., Iyer-Pascuzzi, A. S., Souza, A. M., Tuinstra, M. R., & Yang, Y. (2021). 4D Structural root architecture modeling from digital twins by X-Ray Computed Tomography. Plant Methods, 17(1), 1-12.
+3.	Raumonen P, Kaasalainen M, Åkerblom M, Kaasalainen S, Kaartinen H, Vastaranta M, et al. Fast automatic precision tree models from terrestrial laser scanner data. Remote Sens. 2013;5(2):491–520.
